@@ -1,3 +1,4 @@
+#<<<<<<< employee-menu
 # employee menu branch
 def employee_menu():
     print("\nWelcome Employee")
@@ -33,6 +34,8 @@ def employee_menu():
         else:
             print("Invalid choice. Please try again.")
 
+
+#>>>>>>> main
 #main branch
 print("Welcome to Library Management!")
 pin = int(input("Enter your PIN: "))
