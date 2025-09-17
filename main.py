@@ -1,3 +1,23 @@
+# del-rec fxn branch
+def del_issue_book(bookid,borrowername):
+    appendback=[]
+    k=False
+    with open("Library_Data.csv","r",newline='',encoding='utf8') as f:
+        reader=csv.reader(f)
+        for i in reader:
+            if i[1]==bookid and i[0]==borrowername:
+                k=True
+            else:
+                appendback.append(i)
+    if k:
+        with open("Library_Data.csv","w",newline='',encoding='utf8') as b:
+            writer=csv.writer(b)
+            writer.writerows(appendback)
+        print("Record Removed Successfully")
+    else:
+        print(bookid,"Not Found")
+        
+
 # return book function branch
 def return_issued_book(bookid,returndate,name):
     appendback=[]
