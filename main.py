@@ -42,7 +42,7 @@ def superadmin_menu():
             break
         else:
             print("Invalid choice. Please try again.")
-
+            
 #<<<<<<< employee-menu
 # employee menu branch
 def employee_menu():
