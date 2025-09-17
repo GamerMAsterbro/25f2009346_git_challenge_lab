@@ -1,3 +1,31 @@
+# display-rec-fxn branch
+def Display_records():
+    print("\nWhich File Record Do You Want to Display? ")
+    print("1: Book Inventory")
+    print("2: Issued Records")
+    choice = int(input("Enter your choice (1-2): "))
+    if choice == 1:
+        with open("Books_data.csv","r",newline='',encoding='utf8') as f:
+            reader=csv.reader(f)
+            print('\n',"Book Name","\t","Book ID","\t","Quantity Available")
+            for i in reader:
+                print(i[0],"\t","\t",i[1],"\t","\t",i[2])
+                
+            
+    elif choice == 2:
+        with open("Library_Data.csv","r",newline='',encoding='utf8') as f:
+            reader=csv.reader(f)
+            print('\n',"Borrower Name","\t","Book ID","\t","Book Name","\t","Issue Date","\t","Return Date")
+            for i in reader:
+                    if len(i)<5:
+                        i.append(None)
+                        print(i[0],"\t","\t",i[1],"\t","\t",i[2],"\t","\t",i[3],"\t","\t",i[4])
+                    else:
+                        print(i[0],"\t","\t",i[1],"\t","\t",i[2],"\t","\t",i[3],"\t","\t",i[4])
+                
+    elif choice != 1 and choice !=2:
+        print("Invalid Choice")
+
 #superadmin menu branch
 def superadmin_menu():
     print("\nWelcome Superadmin")
