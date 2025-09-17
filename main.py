@@ -1,3 +1,45 @@
+# return book function branch
+def return_issued_book(bookid,returndate,name):
+    appendback=[]
+    l=[]
+    found=False
+    
+    with open("Library_Data.csv","r",newline='',encoding='utf8') as f:
+            reader=csv.reader(f)
+            for row in reader:
+                if row[1]==bookid and row[0]==name:
+                    row[4]=returndate
+                    appendback.append(row)
+                else:
+                    appendback.append(row)
+                
+    with open("Books_data.csv",'r',newline='',encoding='utf8') as k:
+        reader=csv.reader(k)
+        for i in reader:
+            if i[1] == bookid:  
+                found = True
+                try:
+                    i[2] = str(int(i[2]) + 1)  
+                except ValueError:
+                    print("Error: Quantity is not an integer.")
+                    return
+            l.append(i)
+
+    if found:
+        
+        with open("Library_Data.csv","w",newline='',encoding='utf8') as b:
+            writer=csv.writer(b)
+            writer.writerows(appendback)
+        
+        with open("Books_data.csv",'w',newline='',encoding='utf8') as w:
+            writer=csv.writer(w)
+            writer.writerows(l)
+            
+        print("Book Returned")
+        
+    else:
+        print("invalid Book ID or Name")
+
 # display-rec-fxn branch
 def Display_records():
     print("\nWhich File Record Do You Want to Display? ")
