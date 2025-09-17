@@ -1,3 +1,36 @@
+#inventory-recs branch 
+import csv
+def add_booknqty():
+    with open('Books_data.csv','a',newline='',encoding='utf8') as f:
+        n=int(input("enter no of entries "))
+        writer=csv.writer(f)
+        for i in range(n):
+            x=input("Enter Book name ")
+            y=input("Enter BookID ")
+            z=int(input("enter quantity"))
+            k=[x,y,z]
+            writer.writerow(k)
+        print("Records Added Successfully")
+            
+def delete_book(bookid):
+    appendback=[]
+    k=0
+    with open('Books_data.csv','r',newline='',encoding='utf8') as f:
+        reader=csv.reader(f)
+        for i in reader:
+            if i[1]!=bookid:
+                appendback.append(i)
+                k+=0
+            else:
+                k+=1
+    if k!=0:
+        with open('Books_data.csv','w',newline='',encoding='utf8') as b:
+            writer=csv.writer(b)
+            writer.writerows(appendback)
+        print("Record Removed Successfully")
+    else:
+        print(bookid,"not Found")
+
 # issue-rec branch 
 def add_issue_book(x):
     l=[]
