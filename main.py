@@ -1,3 +1,48 @@
+#superadmin menu branch
+def superadmin_menu():
+    print("\nWelcome Superadmin")
+    while True:
+        print("\nWhat would you like to do?")
+        print("1: Add books")
+        print("2: Delete Books")
+        print("3: Issue a Book")
+        print("4: Delete an Issue Record")
+        print("5: Record Return Date")
+        print("6: Display Records")
+        print("7: Leave")
+        
+
+        sachoice = int(input("Enter your choice (1-7): "))
+
+        if sachoice == 1:
+            add_booknqty()
+        elif sachoice == 2:
+            bookid = input("Please enter Book ID: ")
+            delete_book(bookid)
+        elif sachoice == 3:
+            name=input("Enter Name: ")
+            Bookid=input("Enter Book ID: ")
+            Bookname=input("Enter Bookname ")
+            issuedate=input("Enter Issue Date ")
+            x=[name,Bookid,Bookname,issuedate]
+            add_issue_book(x)
+        elif sachoice == 4:
+            bookid = input("Please enter Book ID: ")
+            borrowername = input("Please enter Borrower Name: ")
+            del_issue_book(bookid,borrowername)
+        elif sachoice == 5:
+            bookid = input("Please enter Book ID: ")
+            returndate = input("Please enter Return Date: ")
+            name=input("Please Enter Browwer Name: ")
+            return_issued_book(bookid, returndate, name)
+        elif sachoice == 6:
+            Display_records()
+        elif sachoice == 7:
+            print("Exiting Superadmin menu.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+            
 #<<<<<<< employee-menu
 # employee menu branch
 def employee_menu():
